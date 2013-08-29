@@ -1,0 +1,21 @@
+{
+  "name": "base",
+  "description": "Base role",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "run_list": [
+    "recipe[users::sysadmins]",
+    "recipe[sudo]",
+    "recipe[base]"
+  ],
+  "default_attributes": {
+    "authorization": {
+      "sudo": {
+        "passwordless": "true",
+        "sudoers_defaults": ["env_reset"]
+      }
+    }
+  },
+  "override_attributes": {
+  }
+}
