@@ -6,6 +6,8 @@ Chef::Platform.set :platform => :arch, :resource => :service, :provider => Chef:
   users
   developer
   firewall
+  docker
+  chef
 }.each do |recipe|
   include_recipe "base::#{recipe}"
 end

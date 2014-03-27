@@ -1,4 +1,19 @@
-# Other users are configured via attributes by the users::sysadmins recipe
+# Users are configured via attributes by the users::sysadmins recipe
+
+ssh_keys = []
+search(:users, "groups:sysadmin AND NOT action:remove") do |u|
+  ssh_keys << u[:ssh_keys]
+end
+ssh_keys.flatten!.compact!
+
+template "#{home_dir}/.ssh/authorized_keys" do
+  source "authorized_keys.erb"
+  cookbook "users"
+  owner node[:base][:users][:deployer]
+  group node[:base][:users][:deployer]
+  mode 0600
+  variables :ssh_keys => ssh_keys
+end
 
 # Disable root password
 execute "root password lockout" do

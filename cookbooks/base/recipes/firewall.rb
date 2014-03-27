@@ -1,7 +1,7 @@
 package "iptables"
 
 service "iptables" do
-  action :enable
+  action [:enable, :start]
 end
 
 cookbook_file "/etc/iptables/iptables.rules" do
