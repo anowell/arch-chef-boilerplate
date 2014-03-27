@@ -1,4 +1,5 @@
-# Users are configured via attributes by the users::sysadmins recipe
+include_recipe "sudo"
+include_recipe "users::sysadmins"
 
 ssh_keys = []
 search(:users, "groups:sysadmin AND NOT action:remove") do |u|

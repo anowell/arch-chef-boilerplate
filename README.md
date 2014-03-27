@@ -38,6 +38,6 @@ Basic Setup
     $ knife role from file roles/base.json
     $ knife data bag create users
     $ knife data bag create users <username> # see README in user cookbook to configure with SSH public key*
-    $ knife bootstrap <host> -x root -d archlinux-gems -r 'role[base]'
+    $ knife bootstrap <host> -x root -d archlinux-gems -r 'recipe[base]'
 
 Don't neglect to add at least one user and SSH public key or you may not be able to SSH into your node.
