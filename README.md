@@ -35,7 +35,6 @@ Basic Setup
     $ berks install
     $ berks upload
     $ knife cookbook upload base
-    $ knife role from file roles/base.json
     $ knife data bag create users
     $ knife data bag create users <username> # see README in user cookbook to configure with SSH public key*
     $ knife bootstrap <host> -x root -d archlinux-gems -r 'recipe[base]'
